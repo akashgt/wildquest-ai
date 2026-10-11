@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-forest-bg: #FAF8F5;
+    --color-forest-text: #1B4332;
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-body);
+    background-color: #FAF8F5;
+    color: #1B4332;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  /* Screen-light mode: distraction-free outdoor mode that is low-brightness, high-contrast, paper-like */
+  .screen-light-mode {
+    background-color: #0B2016 !important;
+    color: #FAF8F5 !important;
+  }
+
+  .screen-light-mode .screen-light-surface {
+    background-color: #133526 !important;
+    border-color: #2D5A44 !important;
+    color: #FAF8F5 !important;
+  }
+
+  .screen-light-mode .screen-light-accent {
+    color: #E9C46A !important;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 90, 68, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 90, 68, 0.4);
+}
+
+/* Glassmorphism token */
+.nature-glass {
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(143, 188, 143, 0.25);
+}
+
+.nature-glass-dark {
+  background: rgba(19, 53, 38, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(143, 188, 143, 0.2);
+}
+
+/* Micro pulse animation for active timer */
+@keyframes nature-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.85;
+  }
+}
+
+.animate-nature-pulse {
+  animation: nature-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
