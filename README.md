@@ -2,7 +2,10 @@
 > **Explore more. Scroll less.**  
 > A mobile-first, offline-first AI nature exploration application powered by Google’s open-weight Gemma model. Built for Hacktoberfest 2026’s “Touch Grass” open-source AI challenge.
 
-[![CI Quality Suite](https://github.com/your-username/wildquest-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/wildquest-ai/actions)
+![WildQuest AI Hero Thumbnail](./public/images/thumbnail.jpg)
+
+[![Deploy GitHub Pages](https://github.com/akashgt/wildquest-ai/actions/workflows/deploy.yml/badge.svg)](https://github.com/akashgt/wildquest-ai/actions)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-goldenrod.svg)](https://akashgt.github.io/wildquest-ai/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Model: Google Gemma](https://img.shields.io/badge/Model-Google_Gemma_2B-emerald.svg)](https://ai.google.dev/gemma)
 
