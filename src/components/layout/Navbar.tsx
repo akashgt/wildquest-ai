@@ -27,11 +27,11 @@ export const Navbar: React.FC = () => {
             <div className="w-9 h-9 rounded-2xl bg-forest-700 flex items-center justify-center p-1 shadow-soft-sm group-hover:bg-forest-800 transition-colors">
               <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
             </div>
-            <div>
+            <div className="flex items-center">
               <span className="font-display font-extrabold text-xl tracking-tight text-forest-900 group-hover:text-forest-700 transition-colors">
                 Wild<span className="text-forest-600">Quest</span>
               </span>
-              <span className="hidden sm:inline-block ml-1.5 text-[10px] uppercase tracking-wider font-mono px-1.5 py-0.5 rounded bg-forest-100 text-forest-800 font-semibold">
+              <span className="ml-1.5 text-[10px] uppercase tracking-wider font-mono px-1.5 py-0.5 rounded bg-forest-100 text-forest-800 font-semibold inline-block">
                 AI
               </span>
             </div>

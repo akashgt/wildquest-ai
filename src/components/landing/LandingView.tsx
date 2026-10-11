@@ -230,7 +230,7 @@ export const LandingView: React.FC = () => {
               Not another chatbot. An invitation to look up.
             </h2>
             <p className="text-sage-200 text-base leading-relaxed mb-8">
-              Instead of keeping your eyes glued to screens, WildQuest generates a gentle, full-screen prompt, then asks you to put your phone in your pocket and pay attention to the trees, sky, wind, and soil.
+              Instead of keeping your eyes glued to screens, WildQuest AI generates a gentle, full-screen prompt, then asks you to put your phone in your pocket and pay attention to the trees, sky, wind, and soil.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">

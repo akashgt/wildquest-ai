@@ -264,7 +264,7 @@ export const SettingsView: React.FC = () => {
 
         <div className="text-xs text-forest-700 space-y-2 leading-relaxed">
           <p>
-            • <strong>No Location or GPS Spying:</strong> WildQuest never asks for GPS access. You choose your environment type manually.
+            • <strong>No Location or GPS Spying:</strong> WildQuest AI never asks for GPS access. You choose your environment type manually.
           </p>
           <p>
             • <strong>Local Nature Journal:</strong> Your notes and photographs are stored only inside your browser’s IndexedDB database. They never upload to a cloud server.

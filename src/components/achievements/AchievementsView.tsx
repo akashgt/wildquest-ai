@@ -138,7 +138,7 @@ export const AchievementsView: React.FC = () => {
               No manipulative gamification
             </h4>
             <p className="text-xs text-sage-200 max-w-lg leading-relaxed">
-              WildQuest refuses to use push notification pressure or punishing streaks. Nature exists on seasonal time, and every visit outdoors is complete in itself.
+              WildQuest AI refuses to use push notification pressure or punishing streaks. Nature exists on seasonal time, and every visit outdoors is complete in itself.
             </p>
           </div>
         </div>

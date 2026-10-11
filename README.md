@@ -116,7 +116,7 @@ $env:OLLAMA_ORIGINS="*"
 ollama serve
 ```
 
-### Step 4: Verify in WildQuest Settings
+### Step 4: Verify in WildQuest AI Settings
 Open the **Settings** view in the application and click **Test Connection**. Once verified, the status indicator will switch to **Gemma Local Connected**.
 
 > **Note on Fallback:** If Ollama is not installed or unreachable, WildQuest AI automatically and transparently activates its built-in **Naturalist Engine (Rule-based Fallback)** so the application remains 100% functional offline.
