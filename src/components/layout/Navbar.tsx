@@ -20,7 +20,7 @@ export const Navbar: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo & Wordmark */}
           <button
-            onClick={() => setCurrentView('dashboard')}
+            onClick={() => setCurrentView('landing')}
             className="flex items-center gap-2.5 focus:outline-none group text-left"
             aria-label="WildQuest AI Home"
           >

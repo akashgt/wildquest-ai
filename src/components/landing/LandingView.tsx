@@ -18,8 +18,16 @@ import { Modal } from '../common/Modal';
 import { useApp } from '../../context/AppContext';
 
 export const LandingView: React.FC = () => {
-  const { setCurrentView } = useApp();
+  const { setCurrentView, settings } = useApp();
   const [showHowItWorksModal, setShowHowItWorksModal] = useState(false);
+
+  const handleStartExploring = () => {
+    if (settings.hasCompletedOnboarding) {
+      setCurrentView('dashboard');
+    } else {
+      setCurrentView('onboarding');
+    }
+  };
 
   const pillars = [
     {
@@ -57,103 +65,124 @@ export const LandingView: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
-      {/* Top Brand Bar */}
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-2xl bg-forest-700 flex items-center justify-center p-1.5 shadow-soft">
-            <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
-          </div>
-          <div>
-            <span className="font-display font-extrabold text-2xl tracking-tight text-forest-900">
-              Wild<span className="text-forest-600">Quest</span>
-            </span>
-            <span className="ml-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-forest-100 text-forest-800 px-2 py-0.5 rounded-full">
-              AI
-            </span>
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setShowHowItWorksModal(true)}
-            icon={<HelpCircle className="w-4 h-4" />}
-          >
-            Philosophy
-          </Button>
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => setCurrentView('onboarding')}
-          >
-            Explore Now
-          </Button>
-        </div>
-      </div>
+      {/* Hero Container with Responsive Photorealistic Background Image */}
+      <section 
+        aria-label="Hero Section"
+        className="relative min-h-[90vh] md:min-h-[94vh] flex flex-col justify-between overflow-hidden"
+      >
+        {/* Background Image: Golden hour ancient forest with winding trail and sunbeams */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/hero-forest-bg.webp'), url('/images/hero-forest-bg.jpg')"
+          }}
+          aria-hidden="true"
+        />
 
-      {/* Hero Section */}
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-20">
-        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+        {/* Multi-layer Tasteful Dark Forest Green Gradient Overlays for High Legibility */}
+        <div className="absolute inset-0 bg-forest-950/45" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-950/85 via-forest-950/50 to-[#FAF8F5]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(11,32,22,0.2)_0%,_rgba(6,19,13,0.65)_100%)]" aria-hidden="true" />
+
+        {/* Top Brand Bar */}
+        <header className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-10 h-10 rounded-2xl bg-forest-800/90 border border-forest-600/50 backdrop-blur-md flex items-center justify-center p-1.5 shadow-soft">
+              <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+            </div>
+            <div>
+              <span className="font-display font-extrabold text-2xl tracking-tight text-ivory-50 drop-shadow-sm">
+                Wild<span className="text-sunlight-400">Quest</span>
+              </span>
+              <span className="ml-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-forest-700/80 text-sunlight-300 border border-forest-500/40 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                AI
+              </span>
+            </div>
+          </div>
+          
+          <nav aria-label="Landing Navigation" className="flex items-center gap-2.5">
+            <button
+              onClick={() => setShowHowItWorksModal(true)}
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-xl bg-forest-900/50 hover:bg-forest-850/80 text-ivory-100 hover:text-ivory-50 border border-forest-700/50 backdrop-blur-md transition-all focus:outline-none focus:ring-2 focus:ring-forest-400"
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-sunlight-400" />
+              <span>Philosophy</span>
+            </button>
+            <Button
+              variant="sunlight"
+              size="sm"
+              onClick={handleStartExploring}
+              className="font-semibold shadow-soft"
+            >
+              Explore Now
+            </Button>
+          </nav>
+        </header>
+
+        {/* Hero Copy & CTA Container */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-20 text-center flex flex-col items-center">
           <Badge 
             variant="sunlight" 
             size="md" 
-            icon={<Leaf className="w-3.5 h-3.5 text-forest-800" />} 
-            className="mb-6 shadow-soft-sm"
+            icon={<Leaf className="w-3.5 h-3.5 text-forest-950" />} 
+            className="mb-6 shadow-soft-sm font-semibold border-sunlight-400/60 bg-sunlight-400/95 text-forest-950 backdrop-blur-sm"
           >
             Hacktoberfest 2026 · "Touch Grass" AI Challenge
           </Badge>
 
-          {/* Required Exact Heading and Subtitle */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display text-forest-900 tracking-tight leading-[1.12] mb-6">
+          {/* Required Exact Heading with enhanced text-shadow */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display text-ivory-50 tracking-tight leading-[1.12] mb-6 drop-shadow-[0_2px_14px_rgba(6,19,13,0.85)]">
             Your next adventure is closer than you think.
           </h1>
 
-          <p className="text-lg sm:text-xl text-forest-700/90 font-normal leading-relaxed max-w-2xl mb-10">
+          {/* Required Exact Subtitle */}
+          <p className="text-lg sm:text-xl md:text-2xl text-ivory-100/95 font-normal leading-relaxed max-w-2xl mb-10 drop-shadow-[0_1px_8px_rgba(6,19,13,0.7)]">
             Discover the extraordinary in the ordinary with your personal AI nature companion.
           </p>
 
           {/* Primary & Secondary Call to Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-14">
             <Button
-              variant="primary"
+              variant="sunlight"
               size="lg"
-              className="w-full sm:w-auto text-base px-8 py-4 shadow-soft-md"
+              className="w-full sm:w-auto text-base px-9 py-4 font-bold shadow-glow-sun hover:scale-[1.02] transition-transform"
               icon={<ArrowRight className="w-5 h-5" />}
               iconPosition="right"
-              onClick={() => setCurrentView('onboarding')}
+              onClick={handleStartExploring}
             >
               Start Exploring
             </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              className="w-full sm:w-auto text-base px-8 py-4"
-              icon={<Compass className="w-5 h-5" />}
+            <button
               onClick={() => setShowHowItWorksModal(true)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-base px-8 py-3.5 font-semibold rounded-2xl bg-forest-900/60 hover:bg-forest-800/80 text-ivory-50 border border-ivory-100/30 backdrop-blur-md transition-all shadow-soft focus:outline-none focus:ring-2 focus:ring-forest-400"
             >
-              See How It Works
-            </Button>
+              <Compass className="w-5 h-5 text-sunlight-400" />
+              <span>See How It Works</span>
+            </button>
           </div>
 
-          {/* Value Highlights Pill Bar */}
-          <div className="flex flex-wrap justify-center items-center gap-4 text-xs sm:text-sm text-forest-800/80 mb-20 bg-sage-100/70 py-3 px-6 rounded-3xl border border-sage-200">
+          {/* Value Highlights Frosted Glass Bar */}
+          <div className="flex flex-wrap justify-center items-center gap-4 text-xs sm:text-sm text-ivory-100/95 bg-forest-950/60 backdrop-blur-md py-3 px-6 sm:px-8 rounded-3xl border border-forest-600/30 shadow-soft-sm">
             <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-forest-600" />
+              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
               Explore More, Scroll Less
             </span>
-            <span className="text-sage-300">·</span>
+            <span className="text-forest-500">·</span>
             <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-forest-600" />
+              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
               No Account Required
             </span>
-            <span className="text-sage-300">·</span>
+            <span className="text-forest-500">·</span>
             <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-forest-600" />
+              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
               100% Offline & Private
             </span>
           </div>
         </div>
+      </section>
 
+      {/* Main Content Area: Pillars and Sample Quests */}
+      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-16">
         {/* Feature Pillars Grid */}
         <section aria-labelledby="pillars-heading" className="mb-24">
           <h2 id="pillars-heading" className="sr-only">Core Capabilities</h2>
