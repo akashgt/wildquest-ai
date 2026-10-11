@@ -12,8 +12,8 @@
 
   html {
     font-family: var(--font-body);
-    background-color: #FAF8F5;
-    color: #1B4332;
+    background-color: #06130D;
+    color: #FAF8F5;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }

@@ -64,127 +64,110 @@ export const LandingView: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5]">
-      {/* Hero Container with Responsive Photorealistic Background Image */}
+    <div className="w-full flex flex-col">
+      {/* Top Brand Bar */}
+      <header className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <div className="w-10 h-10 rounded-2xl bg-forest-800/90 border border-forest-600/50 backdrop-blur-md flex items-center justify-center p-1.5 shadow-soft">
+            <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+          </div>
+          <div className="flex items-center">
+            <span className="font-display font-extrabold text-2xl tracking-tight text-ivory-50 drop-shadow-sm">
+              Wild<span className="text-sunlight-400">Quest</span>
+            </span>
+            <span className="ml-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-forest-700/80 text-sunlight-300 border border-forest-500/40 px-2 py-0.5 rounded-full backdrop-blur-sm inline-block">
+              AI
+            </span>
+          </div>
+        </div>
+        
+        <nav aria-label="Landing Navigation" className="flex items-center gap-2.5">
+          <button
+            onClick={() => setShowHowItWorksModal(true)}
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-xl bg-forest-900/60 hover:bg-forest-850/90 text-ivory-100 hover:text-ivory-50 border border-forest-700/60 backdrop-blur-md transition-all focus:outline-none focus:ring-2 focus:ring-forest-400"
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-sunlight-400" />
+            <span>Philosophy</span>
+          </button>
+          <Button
+            variant="sunlight"
+            size="sm"
+            onClick={handleStartExploring}
+            className="font-semibold shadow-soft"
+          >
+            Explore Now
+          </Button>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
       <section 
         aria-label="Hero Section"
-        className="relative min-h-[90vh] md:min-h-[94vh] flex flex-col justify-between overflow-hidden"
+        className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-16 text-center flex flex-col items-center"
       >
-        {/* Background Image: Golden hour ancient forest with winding trail and sunbeams */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/hero-forest-bg.webp'), url('/images/hero-forest-bg.jpg')"
-          }}
-          aria-hidden="true"
-        />
+        <Badge 
+          variant="sunlight" 
+          size="md" 
+          icon={<Leaf className="w-3.5 h-3.5 text-forest-950" />} 
+          className="mb-6 shadow-soft-sm font-semibold border-sunlight-400/60 bg-sunlight-400/95 text-forest-950 backdrop-blur-sm"
+        >
+          Hacktoberfest 2026 · "Touch Grass" AI Challenge
+        </Badge>
 
-        {/* Multi-layer Tasteful Dark Forest Green Gradient Overlays for High Legibility */}
-        <div className="absolute inset-0 bg-forest-950/45" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest-950/85 via-forest-950/50 to-[#FAF8F5]" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(11,32,22,0.2)_0%,_rgba(6,19,13,0.65)_100%)]" aria-hidden="true" />
+        {/* Required Exact Heading with enhanced text-shadow */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display text-ivory-50 tracking-tight leading-[1.12] mb-6 drop-shadow-[0_2px_14px_rgba(6,19,13,0.85)]">
+          Your next adventure is closer than you think.
+        </h1>
 
-        {/* Top Brand Bar */}
-        <header className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-forest-800/90 border border-forest-600/50 backdrop-blur-md flex items-center justify-center p-1.5 shadow-soft">
-              <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <span className="font-display font-extrabold text-2xl tracking-tight text-ivory-50 drop-shadow-sm">
-                Wild<span className="text-sunlight-400">Quest</span>
-              </span>
-              <span className="ml-1.5 text-[10px] font-mono font-bold uppercase tracking-wider bg-forest-700/80 text-sunlight-300 border border-forest-500/40 px-2 py-0.5 rounded-full backdrop-blur-sm">
-                AI
-              </span>
-            </div>
-          </div>
-          
-          <nav aria-label="Landing Navigation" className="flex items-center gap-2.5">
-            <button
-              onClick={() => setShowHowItWorksModal(true)}
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-xl bg-forest-900/50 hover:bg-forest-850/80 text-ivory-100 hover:text-ivory-50 border border-forest-700/50 backdrop-blur-md transition-all focus:outline-none focus:ring-2 focus:ring-forest-400"
-            >
-              <HelpCircle className="w-3.5 h-3.5 text-sunlight-400" />
-              <span>Philosophy</span>
-            </button>
-            <Button
-              variant="sunlight"
-              size="sm"
-              onClick={handleStartExploring}
-              className="font-semibold shadow-soft"
-            >
-              Explore Now
-            </Button>
-          </nav>
-        </header>
+        {/* Required Exact Subtitle */}
+        <p className="text-lg sm:text-xl md:text-2xl text-ivory-100/95 font-normal leading-relaxed max-w-2xl mb-10 drop-shadow-[0_1px_8px_rgba(6,19,13,0.7)]">
+          Discover the extraordinary in the ordinary with your personal AI nature companion.
+        </p>
 
-        {/* Hero Copy & CTA Container */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-20 text-center flex flex-col items-center">
-          <Badge 
-            variant="sunlight" 
-            size="md" 
-            icon={<Leaf className="w-3.5 h-3.5 text-forest-950" />} 
-            className="mb-6 shadow-soft-sm font-semibold border-sunlight-400/60 bg-sunlight-400/95 text-forest-950 backdrop-blur-sm"
+        {/* Primary & Secondary Call to Actions */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12">
+          <Button
+            variant="sunlight"
+            size="lg"
+            className="w-full sm:w-auto text-base px-9 py-4 font-bold shadow-glow-sun hover:scale-[1.02] transition-transform"
+            icon={<ArrowRight className="w-5 h-5" />}
+            iconPosition="right"
+            onClick={handleStartExploring}
           >
-            Hacktoberfest 2026 · "Touch Grass" AI Challenge
-          </Badge>
+            Start Exploring
+          </Button>
+          <button
+            onClick={() => setShowHowItWorksModal(true)}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-base px-8 py-3.5 font-semibold rounded-2xl bg-forest-900/60 hover:bg-forest-800/80 text-ivory-50 border border-ivory-100/30 backdrop-blur-md transition-all shadow-soft focus:outline-none focus:ring-2 focus:ring-forest-400"
+          >
+            <Compass className="w-5 h-5 text-sunlight-400" />
+            <span>See How It Works</span>
+          </button>
+        </div>
 
-          {/* Required Exact Heading with enhanced text-shadow */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display text-ivory-50 tracking-tight leading-[1.12] mb-6 drop-shadow-[0_2px_14px_rgba(6,19,13,0.85)]">
-            Your next adventure is closer than you think.
-          </h1>
-
-          {/* Required Exact Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-ivory-100/95 font-normal leading-relaxed max-w-2xl mb-10 drop-shadow-[0_1px_8px_rgba(6,19,13,0.7)]">
-            Discover the extraordinary in the ordinary with your personal AI nature companion.
-          </p>
-
-          {/* Primary & Secondary Call to Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-14">
-            <Button
-              variant="sunlight"
-              size="lg"
-              className="w-full sm:w-auto text-base px-9 py-4 font-bold shadow-glow-sun hover:scale-[1.02] transition-transform"
-              icon={<ArrowRight className="w-5 h-5" />}
-              iconPosition="right"
-              onClick={handleStartExploring}
-            >
-              Start Exploring
-            </Button>
-            <button
-              onClick={() => setShowHowItWorksModal(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-base px-8 py-3.5 font-semibold rounded-2xl bg-forest-900/60 hover:bg-forest-800/80 text-ivory-50 border border-ivory-100/30 backdrop-blur-md transition-all shadow-soft focus:outline-none focus:ring-2 focus:ring-forest-400"
-            >
-              <Compass className="w-5 h-5 text-sunlight-400" />
-              <span>See How It Works</span>
-            </button>
-          </div>
-
-          {/* Value Highlights Frosted Glass Bar */}
-          <div className="flex flex-wrap justify-center items-center gap-4 text-xs sm:text-sm text-ivory-100/95 bg-forest-950/60 backdrop-blur-md py-3 px-6 sm:px-8 rounded-3xl border border-forest-600/30 shadow-soft-sm">
-            <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
-              Explore More, Scroll Less
-            </span>
-            <span className="text-forest-500">·</span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
-              No Account Required
-            </span>
-            <span className="text-forest-500">·</span>
-            <span className="flex items-center gap-1.5 font-medium">
-              <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
-              100% Offline & Private
-            </span>
-          </div>
+        {/* Value Highlights Frosted Glass Bar */}
+        <div className="flex flex-wrap justify-center items-center gap-4 text-xs sm:text-sm text-ivory-100/95 bg-forest-950/60 backdrop-blur-md py-3 px-6 sm:px-8 rounded-3xl border border-forest-600/30 shadow-soft-sm">
+          <span className="flex items-center gap-1.5 font-medium">
+            <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
+            Explore More, Scroll Less
+          </span>
+          <span className="text-forest-500">·</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
+            No Account Required
+          </span>
+          <span className="text-forest-500">·</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <CheckCircle2 className="w-4 h-4 text-sunlight-400" />
+            100% Offline & Private
+          </span>
         </div>
       </section>
 
       {/* Main Content Area: Pillars and Sample Quests */}
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-12 w-full">
         {/* Feature Pillars Grid */}
-        <section aria-labelledby="pillars-heading" className="mb-24">
+        <section aria-labelledby="pillars-heading" className="mb-20">
           <h2 id="pillars-heading" className="sr-only">Core Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {pillars.map((item, idx) => {
@@ -193,7 +176,7 @@ export const LandingView: React.FC = () => {
                 <Card 
                   key={idx} 
                   variant="default" 
-                  className="p-7 hover:border-forest-600/40 hover:shadow-soft-md transition-all group"
+                  className="p-7 hover:border-forest-600/40 hover:shadow-soft-md transition-all group bg-ivory-50/95 backdrop-blur-md"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 rounded-2xl bg-forest-100 text-forest-800 flex items-center justify-center group-hover:bg-forest-700 group-hover:text-ivory-50 transition-colors shadow-soft-sm">
@@ -216,7 +199,7 @@ export const LandingView: React.FC = () => {
         </section>
 
         {/* Example Quests Teaser */}
-        <section className="bg-forest-850 rounded-4xl p-8 sm:p-12 text-ivory-50 shadow-soft-lg mb-20 relative overflow-hidden">
+        <section className="bg-forest-900/85 backdrop-blur-md border border-forest-700/60 rounded-4xl p-8 sm:p-12 text-ivory-50 shadow-soft-lg mb-16 relative overflow-hidden">
           {/* Subtle background nature motif */}
           <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
             <Leaf className="w-96 h-96 text-ivory-50" />
@@ -258,7 +241,7 @@ export const LandingView: React.FC = () => {
             <Button
               variant="sunlight"
               size="md"
-              onClick={() => setCurrentView('onboarding')}
+              onClick={handleStartExploring}
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
             >
@@ -330,7 +313,7 @@ export const LandingView: React.FC = () => {
               size="md"
               onClick={() => {
                 setShowHowItWorksModal(false);
-                setCurrentView('onboarding');
+                handleStartExploring();
               }}
             >
               Get Started Now

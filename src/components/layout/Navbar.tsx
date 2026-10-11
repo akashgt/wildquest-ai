@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Top Navbar for desktop and tablet */}
-      <header className="sticky top-0 z-40 bg-ivory-50/90 backdrop-blur-md border-b border-sage-200/80 transition-colors">
+      <header className="sticky top-0 z-40 bg-forest-950/85 backdrop-blur-md border-b border-forest-800/80 transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo & Wordmark */}
           <button
@@ -24,21 +24,21 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-2.5 focus:outline-none group text-left"
             aria-label="WildQuest AI Home"
           >
-            <div className="w-9 h-9 rounded-2xl bg-forest-700 flex items-center justify-center p-1 shadow-soft-sm group-hover:bg-forest-800 transition-colors">
+            <div className="w-9 h-9 rounded-2xl bg-forest-800 border border-forest-600/50 flex items-center justify-center p-1 shadow-soft-sm group-hover:bg-forest-700 transition-colors">
               <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
             </div>
             <div className="flex items-center">
-              <span className="font-display font-extrabold text-xl tracking-tight text-forest-900 group-hover:text-forest-700 transition-colors">
-                Wild<span className="text-forest-600">Quest</span>
+              <span className="font-display font-extrabold text-xl tracking-tight text-ivory-50 group-hover:text-sunlight-400 transition-colors">
+                Wild<span className="text-sunlight-400">Quest</span>
               </span>
-              <span className="ml-1.5 text-[10px] uppercase tracking-wider font-mono px-1.5 py-0.5 rounded bg-forest-100 text-forest-800 font-semibold inline-block">
+              <span className="ml-1.5 text-[10px] uppercase tracking-wider font-mono px-1.5 py-0.5 rounded bg-forest-850 text-sunlight-300 border border-forest-600/50 font-semibold inline-block">
                 AI
               </span>
             </div>
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1.5 bg-sage-100/60 p-1 rounded-2xl border border-sage-200/70" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center gap-1.5 bg-forest-900/80 p-1 rounded-2xl border border-forest-800" aria-label="Main Navigation">
             {navItems.map(item => {
               const Icon = item.icon;
               const isActive = currentView === item.view;
@@ -48,8 +48,8 @@ export const Navbar: React.FC = () => {
                   onClick={() => setCurrentView(item.view)}
                   className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-medium transition-all ${
                     isActive
-                      ? 'bg-forest-700 text-ivory-50 shadow-soft-sm'
-                      : 'text-forest-800 hover:text-forest-950 hover:bg-sage-200/50'
+                      ? 'bg-forest-700 text-ivory-50 shadow-soft-sm font-semibold'
+                      : 'text-sage-200 hover:text-ivory-50 hover:bg-forest-800/60'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
               title={aiStatus.isAvailable ? `Gemma local model active (${aiStatus.modelName})` : 'Using offline rule-based naturalist engine. Click to configure Gemma.'}
             >
               {aiStatus.isAvailable ? (
-                <Badge variant="forest" size="sm" icon={<Sparkles className="w-3 h-3 text-forest-600" />}>
+                <Badge variant="sunlight" size="sm" icon={<Sparkles className="w-3 h-3 text-forest-950" />}>
                   <span className="hidden xs:inline">Gemma Local</span>
                   <span className="inline xs:hidden">Gemma</span>
                 </Badge>
@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
       {/* Bottom Navigation Bar for Mobile (Thumb-friendly) */}
       <nav 
         aria-label="Mobile Navigation"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-ivory-50/95 backdrop-blur-md border-t border-sage-200 px-3 py-2 pb-safe flex justify-around items-center shadow-soft-lg"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-forest-950/95 backdrop-blur-md border-t border-forest-800/80 px-3 py-2 pb-safe flex justify-around items-center shadow-soft-lg"
       >
         {navItems.map(item => {
           const Icon = item.icon;
@@ -96,11 +96,11 @@ export const Navbar: React.FC = () => {
               onClick={() => setCurrentView(item.view)}
               className={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all ${
                 isActive
-                  ? 'text-forest-700 font-semibold'
-                  : 'text-forest-600/70 hover:text-forest-900'
+                  ? 'text-sunlight-400 font-semibold'
+                  : 'text-sage-300 hover:text-ivory-50'
               }`}
             >
-              <div className={`p-1 rounded-xl transition-colors ${isActive ? 'bg-forest-100 text-forest-800' : ''}`}>
+              <div className={`p-1 rounded-xl transition-colors ${isActive ? 'bg-forest-800 text-sunlight-400' : ''}`}>
                 <Icon className="w-5 h-5" />
               </div>
               <span className="text-[11px] font-medium leading-none">{item.label}</span>

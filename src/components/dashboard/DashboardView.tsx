@@ -105,21 +105,21 @@ export const DashboardView: React.FC = () => {
       )}
 
       {/* Greeting Header & Primary Action */}
-      <section className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-2 border-b border-sage-200/50">
+      <section className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-2 border-b border-forest-700/60">
         <div>
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-forest-600 font-mono">
+            <span className="text-xs font-bold uppercase tracking-wider text-sunlight-400 font-mono">
               Nature Awaits Outside
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-forest-500" />
-            <span className="text-xs text-forest-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-sunlight-400" />
+            <span className="text-xs text-sage-200">
               {preferences.environment} · {preferences.durationMinutes}m window
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-forest-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-ivory-50 tracking-tight drop-shadow-sm">
             {getGreeting()}, Explorer.
           </h1>
-          <p className="text-sm text-forest-700/90 mt-1 max-w-xl">
+          <p className="text-sm text-sage-200/90 mt-1 max-w-xl">
             Step away from screens and notice the living world right outside your door.
           </p>
         </div>

@@ -53,18 +53,18 @@ export const SettingsView: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8">
       {/* Header */}
-      <div className="pb-4 border-b border-sage-200/50">
+      <div className="pb-4 border-b border-forest-700/60">
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-xs font-bold uppercase tracking-wider text-forest-600 font-mono">
+          <span className="text-xs font-bold uppercase tracking-wider text-sunlight-400 font-mono">
             System & Privacy
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-forest-500" />
-          <span className="text-xs text-forest-700">Open Architecture</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-sunlight-400" />
+          <span className="text-xs text-sage-200">Open Architecture</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-forest-900 tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold font-display text-ivory-50 tracking-tight drop-shadow-sm">
           Settings & Local AI
         </h1>
-        <p className="text-sm text-forest-700/90 mt-0.5">
+        <p className="text-sm text-sage-200/90 mt-0.5">
           Configure local open-weight inference, verify offline readiness, and inspect privacy guarantees.
         </p>
       </div>

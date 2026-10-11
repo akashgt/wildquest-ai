@@ -93,15 +93,15 @@ export const OnboardingWizard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] py-8 px-4 sm:px-6 flex flex-col justify-center items-center">
+    <div className="min-h-screen py-8 px-4 sm:px-6 flex flex-col justify-center items-center">
       <div className="w-full max-w-2xl">
         {/* Progress header */}
         <div className="flex items-center justify-between mb-8">
           <button
             onClick={() => step > 1 ? setStep(step - 1) : setCurrentView('landing')}
-            className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-forest-700 hover:text-forest-900 transition-colors"
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-sage-200 hover:text-ivory-50 transition-colors bg-forest-900/60 px-3 py-1.5 rounded-xl border border-forest-700/60 backdrop-blur-sm"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-sunlight-400" />
             <span>{step === 1 ? 'Back to Intro' : 'Previous Step'}</span>
           </button>
           
@@ -111,10 +111,10 @@ export const OnboardingWizard: React.FC = () => {
                 key={i} 
                 className={`h-2 rounded-full transition-all duration-300 ${
                   i === step 
-                    ? 'w-8 bg-forest-700' 
+                    ? 'w-8 bg-sunlight-400' 
                     : i < step 
                     ? 'w-2 bg-sage-400' 
-                    : 'w-2 bg-sage-200'
+                    : 'w-2 bg-forest-800'
                 }`}
               />
             ))}

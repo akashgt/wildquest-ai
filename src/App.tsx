@@ -15,53 +15,54 @@ import { AdventureActiveMode } from './components/adventure/AdventureActiveMode'
 const MainAppContent: React.FC = () => {
   const { currentView, isLoading } = useApp();
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#FAF8F5] flex flex-col items-center justify-center space-y-4">
-        <div className="w-12 h-12 rounded-2xl bg-forest-700 flex items-center justify-center p-2 shadow-soft animate-pulse">
-          <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
-        </div>
-        <div className="text-xs font-mono font-bold uppercase tracking-wider text-forest-700">
-          WildQuest AI · Loading Nature Space...
-        </div>
-      </div>
-    );
-  }
-
-  if (currentView === 'landing') {
-    return (
-      <>
-        <OfflineBanner />
-        <LandingView />
-      </>
-    );
-  }
-
-  if (currentView === 'onboarding') {
-    return (
-      <>
-        <OfflineBanner />
-        <OnboardingWizard />
-      </>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-forest-900">
-      <OfflineBanner />
-      <Navbar />
+    <div className="min-h-screen flex flex-col relative text-ivory-100 selection:bg-sunlight-400 selection:text-forest-950">
+      {/* Global Photorealistic Forest Background throughout the entire application */}
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/hero-forest-bg.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Global Ambient Dark Forest Gradient Overlay: Keeps forest canopy and sunbeams visible while preserving readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-950/80 via-forest-950/65 to-forest-950/85" />
+      </div>
 
-      <main className="flex-1 pb-16 md:pb-6">
-        {currentView === 'dashboard' && <DashboardView />}
-        {currentView === 'journal' && <JournalView />}
-        {currentView === 'achievements' && <AchievementsView />}
-        {currentView === 'settings' && <SettingsView />}
-      </main>
+      <div className="relative z-10 flex flex-col min-h-screen flex-1">
+        <OfflineBanner />
 
-      <Footer />
+        {isLoading ? (
+          <div className="min-h-screen flex flex-col items-center justify-center space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-forest-700 flex items-center justify-center p-2 shadow-soft animate-pulse">
+              <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+            </div>
+            <div className="text-xs font-mono font-bold uppercase tracking-wider text-ivory-100">
+              WildQuest AI · Loading Nature Space...
+            </div>
+          </div>
+        ) : currentView === 'landing' ? (
+          <LandingView />
+        ) : currentView === 'onboarding' ? (
+          <OnboardingWizard />
+        ) : (
+          <>
+            <Navbar />
+            <main className="flex-1 pb-16 md:pb-6">
+              {currentView === 'dashboard' && <DashboardView />}
+              {currentView === 'journal' && <JournalView />}
+              {currentView === 'achievements' && <AchievementsView />}
+              {currentView === 'settings' && <SettingsView />}
+            </main>
+            <Footer />
+          </>
+        )}
 
-      {/* Signature Distraction-Free Adventure Mode Fullscreen Active Overlay */}
-      <AdventureActiveMode />
+        {/* Signature Distraction-Free Adventure Mode Fullscreen Active Overlay */}
+        <AdventureActiveMode />
+      </div>
     </div>
   );
 };
