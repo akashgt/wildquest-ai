@@ -23,7 +23,7 @@ const MainAppContent: React.FC = () => {
         aria-hidden="true"
       >
         <img 
-          src="/images/hero-forest-bg.webp" 
+          src={`${import.meta.env.BASE_URL}images/hero-forest-bg.webp`} 
           alt="" 
           className="w-full h-full object-cover object-center"
         />
@@ -37,7 +37,7 @@ const MainAppContent: React.FC = () => {
         {isLoading ? (
           <div className="min-h-screen flex flex-col items-center justify-center space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-forest-700 flex items-center justify-center p-2 shadow-soft animate-pulse">
-              <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+              <img src={`${import.meta.env.BASE_URL}icons/leaf-logo.svg`} alt="WildQuest emblem" className="w-full h-full object-contain" />
             </div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-ivory-100">
               WildQuest AI · Loading Nature Space...

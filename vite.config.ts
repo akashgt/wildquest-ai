@@ -3,22 +3,26 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
+const isGithubPages = process.env.GITHUB_PAGES === 'true';
+const basePath = isGithubPages ? '/wildquest-ai/' : './';
+
 export default defineConfig({
+  base: basePath,
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'icons/*.svg', 'icons/*.png'],
+      includeAssets: ['favicon.ico', 'icons/*.svg', 'icons/*.png', 'images/*.webp'],
       manifest: {
         name: 'WildQuest AI — Nature Exploration Companion',
         short_name: 'WildQuest AI',
         description: 'Explore more. Scroll less. Distraction-free outdoor nature adventures powered by open-weight AI.',
         theme_color: '#1B4332',
-        background_color: '#FAF8F5',
+        background_color: '#06130D',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: basePath,
+        start_url: basePath,
         icons: [
           {
             src: '/icons/icon-192.png',

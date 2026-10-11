@@ -69,7 +69,7 @@ export const LandingView: React.FC = () => {
       <header className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <div className="w-10 h-10 rounded-2xl bg-forest-800/90 border border-forest-600/50 backdrop-blur-md flex items-center justify-center p-1.5 shadow-soft">
-            <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+            <img src={`${import.meta.env.BASE_URL}icons/leaf-logo.svg`} alt="WildQuest emblem" className="w-full h-full object-contain" />
           </div>
           <div className="flex items-center">
             <span className="font-display font-extrabold text-2xl tracking-tight text-ivory-50 drop-shadow-sm">

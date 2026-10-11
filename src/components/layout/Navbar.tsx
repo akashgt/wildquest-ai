@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
             aria-label="WildQuest AI Home"
           >
             <div className="w-9 h-9 rounded-2xl bg-forest-800 border border-forest-600/50 flex items-center justify-center p-1 shadow-soft-sm group-hover:bg-forest-700 transition-colors">
-              <img src="/icons/leaf-logo.svg" alt="WildQuest emblem" className="w-full h-full object-contain" />
+              <img src={`${import.meta.env.BASE_URL}icons/leaf-logo.svg`} alt="WildQuest emblem" className="w-full h-full object-contain" />
             </div>
             <div className="flex items-center">
               <span className="font-display font-extrabold text-xl tracking-tight text-ivory-50 group-hover:text-sunlight-400 transition-colors">
